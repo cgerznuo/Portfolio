@@ -383,6 +383,31 @@ const IMG = {
   ]
 };
 
+/* ===== 총 경력 자동 계산 =====
+   각 회사 재직 기간(끝이 null이면 '현재')을 모두 합산해 오늘 날짜 기준으로 계산합니다.
+   회사가 추가/변경되면 아래 기간만 갱신하면 총 경력이 자동 반영됩니다. */
+const CAREER_PERIODS = [
+  ["2006-03", "2009-07"], // Semologic Korea
+  ["2009-10", "2010-05"], // Orange Studio
+  ["2010-10", "2011-01"], // Kinomotive
+  ["2011-01", "2013-09"], // CJ Powercast / AZWorks
+  ["2013-09", "2021-12"], // Studio Gale
+  ["2022-05", "2023-11"], // VA Corporation
+  ["2023-12", null]       // Studio Realive (현재)
+];
+function calcTotalCareer(){
+  const now = new Date();
+  const nowM = now.getFullYear() * 12 + (now.getMonth() + 1);
+  let months = 0;
+  for (const [s, e] of CAREER_PERIODS){
+    const [sy, sm] = s.split("-").map(Number);
+    const end = e ? (() => { const [ey, em] = e.split("-").map(Number); return ey * 12 + em; })() : nowM;
+    months += end - (sy * 12 + sm);
+  }
+  return Math.floor(months / 12) + "년 " + (months % 12) + "개월";
+}
+const TOTAL_CAREER = calcTotalCareer();
+
 const CONFIG = {
   brand: "STUDIO / PORTFOLIO",
   headline: "",
@@ -410,7 +435,7 @@ const CONFIG = {
             "생년월일 · 1979년 6월 6일",
             "전화번호 · 010-3033-0079",
             "경력 시작 · 2006년 9월",
-            "총 경력 · 19년 6개월",
+            "총 경력 · " + TOTAL_CAREER,
             "사용 프로그램 · 마야, 언리얼, MEL, Python"
           ],
           tags: ["마야", "언리얼", "MEL", "Python"]
@@ -438,7 +463,7 @@ const CONFIG = {
         { title: "Yeongheung Power Plant", meta: "Promotional Video", images: ["images/yeongheung-1.jpg","images/yeongheung-2.jpg","images/yeongheung-3.jpg"], body: ["애니메이션 리그, 시뮬레이션 리그, FX 리그를 종류별로 각각 구성하고, 데이터를 추출해 합치는 공정을 반자동 툴로 제작했던 기억이 남습니다.", "중간에 트랜스포머처럼 변신하는 바이크가 있었는데, 제작할 때는 손이 많이 가 고생했지만 실제 변신 샷을 보고 나서는 무척 뿌듯했습니다."] },
         { title: "Wild Thing", meta: "Game Cinematic · Warner Bros.", images: ["images/wildthing-1.jpg","images/wildthing-2.jpg","images/wildthing-3.jpg"], body: ["두꺼운 팔다리와 조류 부리, 그리고 폴리곤에 텍스처로 표현한 털이 특징인 프로젝트입니다.", "리깅과 스킨 웨이트가 어느 정도 익숙해진 시점이라 비교적 수월하게 진행할 수 있었습니다."], link: "https://www.youtube.com/watch?v=ir2LX7SXRkI&t=132s" },
         { title: "Skid Rush", meta: "Game Cinematic · NPLUTO", images: ["images/skidrush-1.jpg","images/skidrush-2.jpg","images/skidrush-3.jpg","images/skidrush-4.jpg","images/skidrush-5.jpg"], body: ["툰 렌더링에 아웃라인이 들어간 프로젝트는 이때가 처음이었습니다.", "주행과 드리프트 컷이 대부분이라, 드리프트와 바퀴 회전을 자동화하는 스크립트를 직접 개발하며 여러모로 많은 공부가 되었던 프로젝트입니다.", "차종이 더 있었지만 일부가 드랍되어 아쉬움이 남는 프로젝트입니다."], link: "https://www.youtube.com/watch?v=i0ffPT4TAOU" },
-        { title: "Tale of Despereaux", meta: "Game Cinematic · Brash Entertainment" },
+        { title: "Tale of Despereaux", meta: "Game Cinematic · Brash Entertainment", images: ["images/despereaux-1.jpg","images/despereaux-2.jpg","images/despereaux-3.jpg","images/despereaux-4.jpg","images/despereaux-5.jpg","images/despereaux-6.jpg"], body: ["스쿼시 앤 스트레치 옵션을 두고 많은 고민을 했던 프로젝트입니다.", "컨트롤러별, 팔다리별, 그리고 캐릭터 전체 단위로 리그 스페이스를 분리해 스쿼시 앤 스트레치를 반영했던 기억이 납니다.", "다만 털 에셋이 너무 무거워 애니메이션 단계에서는 털을 확인할 수 없었던 점이 아쉬웠습니다."], link: "https://www.youtube.com/watch?v=RbLtoU8Jld4" },
         { title: "Night at the Museum", meta: "Game Cinematic · Majesco Games" },
         { title: "Kamui Gaiden", meta: "VFX · Imagica Imageworks" },
         { title: "Oregon Files", meta: "Game Cinematic", images: ["images/oregon-1.jpg","images/oregon-2.jpg","images/oregon-3.jpg","images/oregon-4.jpg","images/oregon-5.jpg","images/oregon-6.jpg","images/oregon-7.jpg"], body: ["엑스트라가 많고 변신 기믹도 곳곳에 사용되어, 짧은 기간 안에 작업하느라 쉽지 않았던 프로젝트입니다.", "바디와 파츠별 프로토타입을 재활용하는 파이프라인으로 전환해 제작 효율을 크게 높였습니다.", "영상 자체의 완성도는 높았지만, 제작사 사정으로 프로젝트가 중단되어 세상에 공개되지 못한 아쉬운 작품입니다."] },
