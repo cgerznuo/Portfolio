@@ -380,6 +380,49 @@ const IMG = {
     "images/ragnarok2-1.jpg",
     "images/ragnarok2-2.jpg",
     "images/ragnarok2-3.jpg"
+  ],
+  tisitasi: [
+    "images/tisitasi-1.jpg",
+    "images/tisitasi-2.jpg",
+    "images/tisitasi-3.jpg",
+    "images/tisitasi-4.jpg",
+    "images/tisitasi-5.jpg",
+    "images/tisitasi-6.jpg",
+    "images/tisitasi-7.jpg"
+  ],
+  pinkbus: [
+    "images/pinkbus-1.jpg",
+    "images/pinkbus-2.jpg",
+    "images/pinkbus-3.jpg",
+    "images/pinkbus-4.jpg",
+    "images/pinkbus-5.jpg",
+    "images/pinkbus-6.jpg",
+    "images/pinkbus-7.jpg",
+    "images/pinkbus-8.jpg",
+    "images/pinkbus-9.jpg"
+  ],
+  xjapan: [
+    "images/xjapan-1.jpg",
+    "images/xjapan-2.jpg",
+    "images/xjapan-3.jpg",
+    "images/xjapan-4.jpg",
+    "images/xjapan-5.jpg",
+    "images/xjapan-6.jpg",
+    "images/xjapan-7.jpg",
+    "images/xjapan-8.jpg"
+  ],
+  td1: [
+    "images/td1-1.jpg",
+    "images/td1-2.jpg",
+    "images/td1-3.jpg",
+    "images/td1-4.jpg",
+    "images/td1-5.jpg",
+    "images/td1-6.jpg",
+    "images/td1-7.jpg",
+    "images/td1-8.jpg",
+    "images/td1-9.jpg",
+    "images/td1-10.jpg",
+    "images/td1-11.jpg"
   ]
 };
 
@@ -436,7 +479,8 @@ const CONFIG = {
             "전화번호 · 010-3033-0079",
             "경력 시작 · 2006년 9월",
             "총 경력 · " + TOTAL_CAREER,
-            "사용 프로그램 · 마야, 언리얼, MEL, Python"
+            "사용 프로그램 · 마야, 언리얼, MEL, Python",
+            '<a href="https://drive.google.com/file/d/1dXunFLIUu76O7X_1vvIabL58Zyd7iVhM/view?usp=drive_link" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:3px;">기존 2013년 제작 포폴 영상 ↗</a>'
           ],
           tags: ["마야", "언리얼", "MEL", "Python"]
         }
@@ -520,7 +564,10 @@ const CONFIG = {
         { title: "버디크러쉬", meta: "Game Promotional Video · Com2uS" },
         { title: "윌벤져스 캠핑소동", meta: "Movie Teaser" },
         { title: "토몬카", meta: "TV Animation · Unity Pipeline" },
-        { title: "티시태시", meta: "YouTube Content · Unreal Pipeline" }
+        { title: "티시태시 - 춤추고 노래해요", meta: "YouTube Content · Unreal Pipeline", images: IMG.tisitasi, body: [
+          "Studio Gale에서 진행한 프로젝트로, Unreal 파이프라인 자동화의 혜택을 가장 크게 본 작업입니다.",
+          "Xsens 기반의 모션 캡처로 동작을 확보했으며, 캐릭터 에셋과 배경, 프랍 리깅을 전반적으로 담당했습니다."
+        ], link: "https://www.youtube.com/watch?v=JAQo_vF3TgE" }
       ]
     },
     {
@@ -540,7 +587,22 @@ const CONFIG = {
         { title: "Keisuke", meta: "Virtual Human" },
         { title: "Naevis", meta: "TV Show" },
         { title: "Miyao", meta: "Character Animation", images: ["images/miyao-1.jpg","images/miyao-2.jpg","images/miyao-3.jpg","images/miyao-4.jpg","images/miyao-5.jpg","images/miyao-6.jpg","images/miyao-7.jpg","images/miyao-8.jpg","images/miyao-9.jpg"], body: ["클라이언트가 직접 모델링한 Blender 파일을 가져와 진행한, 저의 첫 Blender 프로젝트입니다.", "Maya에서 리깅한 뒤 Alembic(ABC)으로 Blender에 전달했고, 털 시뮬레이션과 렌더링은 Blender 작업자가 담당했습니다.", "모델링 리소스가 특정 부위에 밀집되어 있어 손이 매우 많이 갔던 프로젝트로 기억에 남습니다."], link: "https://www.youtube.com/watch?v=HIfevhf6O6s" },
-        { title: "TD1", meta: "Company Profile Pilot" }
+        { title: "핑크버스 - Call Devil Run MV", meta: "Music Video · SM Entertainment", images: IMG.pinkbus, body: [
+          "SM에서 진행하게 된 첫 프로젝트입니다.",
+          "앞서 VA Corporation에서 작업한 소녀리버스와 성격이 유사한 프로젝트여서 상대적으로 부담이 덜했습니다.",
+          "기획 단계에서 레이아웃을 명확하게 확정한 뒤 진행한 덕분에, 짧은 일정에도 흔들림 없이 완성할 수 있었던 작업이라고 생각합니다."
+        ], link: "https://www.youtube.com/watch?v=-B6W4voCGtI" },
+        { title: "X JAPAN", meta: "Virtual Concert Tech Demo", images: IMG.xjapan, body: [
+          "X JAPAN의 복귀 버추얼 콘서트 수주(비딩)를 위해 제작한 파일럿 테크 데모 영상입니다.",
+          "기존에 구축해 둔 김우진 버추얼 휴먼 에셋을 활용했으며, 드럼 세팅과 손 포즈 라이브러리를 별도로 구축해 반복 작업을 재활용하는 공정을 설계했습니다.",
+          "평소 X JAPAN에 애정과 추억이 많았던 만큼 애착이 컸던 프로젝트였으나, 가교 역할을 하던 에이전트 측 사정으로 진행이 무산되며 종료되어 아쉬움이 남는 작업입니다."
+        ] },
+        { title: "TD1", meta: "Company Profile Pilot", images: IMG.td1, body: [
+          "3D 스캔으로 페이셜과 표정, 전신 데이터를 확보한 뒤, FaceForm(스캔 데이터 기반의 뉴럴 네트워크 페이셜 구축 기술)으로 표정을 생성하고, Symbiote(Texturing.xyz 기반 파생 서비스)로 마이크로 텍스처까지 적용해 완성한 하이퍼리얼 휴먼 프로젝트입니다.",
+          "작업 기간은 평소보다 길었지만, 그만큼 디테일과 완성도를 한층 끌어올릴 수 있었던 작업입니다.",
+          "다만 언리얼 셰이더와 라이팅에 대한 별도의 솔루션 없이 진행해 그 부분이 아쉬움으로 남습니다.",
+          "내부 프로젝트로 외부에 퍼블리시되지 않아, 공개할 수 있는 영상이 없다는 점 또한 아쉬운 작품입니다."
+        ] }
       ]
     }
   ]
